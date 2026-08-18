@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="title">Owner Dashboard</h1>
+
+<div class="card admin">
+    <h3>Edit Car Pricing</h3>
+
+    {% for car in cars %}
+    <form method="POST">
+        <input type="hidden" name="car_id" value="{{ car.id }}">
+
+        <p><strong>{{ car.name }}</strong></p>
+
+        <label>Daily Price</label>
+        <input name="daily_price" value="{{ car.daily_price }}">
+
+        <label>GPS Price</label>
+        <input name="gps_price" value="{{ car.gps_price }}">
+
+        <label>Extra Driver Price</label>
+        <input name="extra_driver_price" value="{{ car.extra_driver_price }}">
+
+        <label>Available?</label>
+        <select name="available">
+            <option value="1" {% if car.available %}selected{% endif %}>Yes</option>
+            <option value="0" {% if not car.available %}selected{% endif %}>No</option>
+        </select>
+
+        <button type="submit">Save</button>
+    </form>
+    <hr>
+    {% endfor %}
+
+    <a href="/owner/cars" class="logout">Manage Cars</a>
+    <a href="/owner/analytics" class="logout">Analytics</a>
+    <a href="/logout" class="logout">Logout</a>
+</div>
+
+{% endblock %}

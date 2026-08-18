@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="title">Choose Your Car</h1>
+
+<div class="car-grid">
+    {% for car in cars %}
+    <div class="car-card">
+        <img src="{{ car.image }}">
+        <h3>{{ car.name }}</h3>
+        <p>${{ car.daily_price }}/day</p>
+
+        <form method="POST">
+            <input type="hidden" name="car_id" value="{{ car.id }}">
+
+            <label>Days:</label>
+            <input type="number" name="days" value="1">
+
+            <label>GPS?</label>
+            <input type="checkbox" name="gps">
+
+            <label>Extra Driver?</label>
+            <input type="checkbox" name="extra_driver">
+
+            <button type="submit">Book</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+{% if message %}
+<p style="text-align:center; color:lightgreen;">{{ message }}</p>
+{% endif %}
+
+{% endblock %}

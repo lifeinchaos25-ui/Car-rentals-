@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="title">Analytics</h1>
+
+<div class="card admin">
+    <h2>Total Revenue: ${{ total_revenue or 0 }}</h2>
+    <h2>Total Bookings: {{ total_bookings }}</h2>
+
+    <h3>Revenue Per Car</h3>
+    <ul>
+        {% for row in revenue_per_car %}
+            <li>{{ row.name }} — ${{ row.rev or 0 }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Most Rented Car</h3>
+    <p>{{ most_rented.name }} ({{ most_rented.cnt }} rentals)</p>
+
+    <a href="/owner" class="logout">Back</a>
+</div>
+
+{% endblock %}

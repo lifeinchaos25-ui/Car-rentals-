@@ -1,0 +1,72 @@
+/* Dashboard-specific styling */
+
+.dashboard-container {
+    background: rgba(255,255,255,0.12);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    width: 80%;
+    margin: auto;
+    animation: fadeIn 1s ease;
+}
+
+.dashboard-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.dashboard-card {
+    background: rgba(0,0,0,0.35);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.dashboard-card input,
+.dashboard-card select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 5px;
+}
+
+.dashboard-card button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: #00c8ff;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dashboard-card button:hover {
+    background: #4fe3ff;
+}
+
+.analytics-box {
+    background: rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.analytics-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.analytics-box li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}

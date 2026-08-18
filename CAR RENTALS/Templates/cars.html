@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="title">Car Fleet Management</h1>
+
+<div class="card admin">
+    <form method="POST">
+        <label>Car Name</label>
+        <input name="name">
+
+        <label>Image URL</label>
+        <input name="image">
+
+        <label>Daily Price</label>
+        <input name="daily_price">
+
+        <label>GPS Price</label>
+        <input name="gps_price">
+
+        <label>Extra Driver Price</label>
+        <input name="extra_driver_price">
+
+        <label>Available?</label>
+        <select name="available">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <button type="submit">Add Car</button>
+    </form>
+
+    <h3>Existing Cars</h3>
+    <ul>
+        {% for car in cars %}
+            <li>
+                <img src="{{ car.image }}" width="120">
+                {{ car.name }} — ${{ car.daily_price }}
+                {% if car.available %}✔ Available{% else %}❌ Not Available{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/owner" class="logout">Back</a>
+</div>
+
+{% endblock %}
